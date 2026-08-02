@@ -1,0 +1,99 @@
+//Q1. Accept a number from user.
+//If divisible by 3 → print "Fun"
+//If divisible by 7 → print "Buzz"
+//If divisible by both 3 and 7 → print "Fun-Buzz"
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter number: ");
+        int n = sc.nextInt();
+
+        if (n % 3 == 0 && n % 7 == 0)
+            System.out.println("Fun-Buzz");
+        else if (n % 3 == 0)
+            System.out.println("Fun");
+        else if (n % 7 == 0)
+            System.out.println("Buzz");
+        else
+            System.out.println("Not divisible");
+    }
+}
+
+-------------------------------------------------
+
+//Q2. Accept start and end number. Print all odd numbers between them.
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int start = sc.nextInt();
+        int end = sc.nextInt();
+
+        if (start % 2 == 0)
+            start++;
+
+        while (start <= end) {
+            System.out.print(start + " ");
+            start += 2;
+        }
+    }
+}
+
+--------------------------------------------------
+
+// Q3. Accept a number and check whether it is palindrome or not.
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int num = sc.nextInt();
+        int temp = num;
+        int rev = 0;
+
+        while (num > 0) {
+            int rem = num % 10;
+            rev = rev * 10 + rem;
+            num = num / 10;
+        }
+
+        if (temp == rev)
+            System.out.println("Palindrome");
+        else
+            System.out.println("Not Palindrome");
+    }
+}
+
+---------------------------------------------------
+
+//Q4. Accept a term from user and print Fibonacci series.
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+
+        int a = 0, b = 1;
+
+        for (int i = 1; i <= n; i++) {
+            System.out.print(a + " ");
+
+            int c = a + b;
+            a = b;
+            b = c;
+        }
+    }
+}
+

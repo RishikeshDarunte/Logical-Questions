@@ -1,0 +1,104 @@
+Q.1) Print unique sorted array Accept data in sorted order having duplicate value. You need
+to print unique array using single loop . Unique sorted array using 1 loop
+Input 1 1 2 2 2 5 output1 2 5
+
+
+public class UniqueSortedArray {
+    public static void main(String[] args) {
+
+        int arr[] = {1, 1, 2, 2, 2, 5};
+
+        for (int i = 0; i < arr.length; i++) {
+
+            if (i == arr.length - 1 || arr[i] != arr[i + 1]) {
+                System.out.print(arr[i] + " ");
+            }
+
+        }
+    }
+}
+
+---------------------------------------
+Q.2) To find the maximum sum of all subarrays of size K:
+Given an array of integers of size ‘n’, Our aim is to calculate the maximum sum of ‘k’
+consecutive elements in the array.
+Input : arr[] = {100, 200, 300, 400}, k = 2
+Output : 700
+
+
+public class MaximumSumSubarray {
+
+    public static void main(String[] args) {
+
+        int arr[] = {100, 200, 300, 400};
+        int k = 2;
+
+        int sum = 0;
+
+        for (int i = 0; i < k; i++) {
+            sum = sum + arr[i];
+        }
+
+        int max = sum;
+
+        for (int i = k; i < arr.length; i++) {
+
+            sum = sum + arr[i] - arr[i - k];
+
+            if (sum > max)
+                max = sum;
+        }
+
+        System.out.println(max);
+    }
+}
+
+---------------------------------------------------
+Q.2) Given a 1-based indexing array arr[] of non-negative integers and an integer sum. You
+mainly need to return the left and right indexes(1-based indexing) of that subarray. In
+case of multiple subarrays, return the subarray indexes which come first on moving from
+left to right. If no such subarray exists return an array consisting of element -1.
+Examples:
+Input: arr[] = [15, 2, 4, 8, 9, 5, 10, 23], target = 23
+Output: [2, 5]
+Explanation: Sum of subarray arr[2…5] is 2 + 4 + 8 + 9 = 23.
+Input: arr[] = [1, 10, 4, 0, 3, 5], target = 7
+Output: [3, 5]
+Explanation: Sum of subarray arr[3…5] is 4 + 0 + 3 = 7.
+Input: arr[] = [1, 4], target = 0
+Output: [-1]
+Explanation: There is no subarray with 0 sum.
+
+
+
+public class SubarrayWithGivenSum {
+
+    public static void main(String[] args) {
+
+        int arr[] = {15, 2, 4, 8, 9, 5, 10, 23};
+        int target = 23;
+
+        int start = 0;
+        int sum = 0;
+        boolean found = false;
+
+        for (int end = 0; end < arr.length; end++) {
+
+            sum = sum + arr[end];
+
+            while (sum > target && start <= end) {
+                sum = sum - arr[start];
+                start++;
+            }
+
+            if (sum == target) {
+                System.out.println((start + 1) + " " + (end + 1));
+                found = true;
+                break;
+            }
+        }
+
+        if (!found)
+            System.out.println(-1);
+    }
+}

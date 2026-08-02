@@ -1,0 +1,184 @@
+Q.1) Store 2 string in an array eg. [“Car”, “Truck”,]
+ Write a statement having words Car and Truck. Count occurrence of Car
+and Truck in given paragraph.
+Eg. Input
+I have 2 Car one is Baleno Car and other is Farari Car but Truck is used for
+transportation.
+Car occurred 3 time Truck Occurred 1 time
+
+
+import java.util.Scanner;
+
+public class Q1 {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        String[] words = {"Car", "Truck"};
+
+        System.out.println("Enter paragraph:");
+        String paragraph = sc.nextLine().toLowerCase();
+
+        for (String word : words) {
+            int count = 0;
+            int index = 0;
+            String search = word.toLowerCase();
+
+            while ((index = paragraph.indexOf(search, index)) != -1) {
+                count++;
+                index = index + search.length();
+            }
+
+            System.out.println(word + " occurred " + count + " time(s)");
+        }
+
+    }
+}
+
+------------------------------------------------
+Q.2) Accept a sentence , accept a word and count occurrence of that word.
+Input: Wel come to CDAC it offers DAC in All CDAC centre.
+Input DAC
+O/P DAC occurred 3 time
+
+
+import java.util.Scanner;
+
+public class Q2 {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter sentence:");
+        String sentence = sc.nextLine().toLowerCase();
+
+        System.out.println("Enter word:");
+        String word = sc.next().toLowerCase();
+
+        int count = 0;
+        int index = 0;
+
+        while ((index = sentence.indexOf(word, index)) != -1) {
+            count++;
+            index = index + word.length();
+        }
+
+        System.out.println(word + " occurred " + count + " time(s)");
+
+    }
+}
+
+-----------------------------------------------------
+Q.3) Accept a name from user and check if it is palindrome or not
+
+
+import java.util.Scanner;
+
+public class Q3 {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter name:");
+        String str = sc.next();
+
+        char[] ch = str.toCharArray();
+
+        int flag = 0;
+        int len = ch.length;
+
+        for (int i = 0; i < len / 2; i++) {
+            if (ch[i] != ch[len - 1 - i]) {
+                flag = 1;
+                break;
+            }
+        }
+
+        if (flag == 0)
+            System.out.println("Palindrome");
+        else
+            System.out.println("Not Palindrome");
+
+    }
+}
+
+--
+
+
+import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+
+		        System.out.print("Enter string: ");
+		        String str = sc.nextLine();
+
+		        String rev = "";
+
+		        for (int i = str.length() - 1; i >= 0; i--) {
+		            rev += str.charAt(i);
+		        }
+
+		        if (str.equals(rev))
+		            System.out.println("Palindrome");
+		        else
+		            System.out.println("Not Palindrome");
+    }
+}
+
+
+---------------------
+Q.4) Accept a sentence from user and count total number of words.
+
+
+import java.util.Scanner;
+
+public class Q4 {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter sentence:");
+        String sentence = sc.nextLine();
+
+        System.out.println("Total Words = " + countWords(sentence));
+
+        sc.close();
+    }
+
+    public static int countWords(String str) {
+
+        if (str == null || str.isEmpty())
+            return 0;
+
+        int count = 0;
+        boolean isWord = false;
+
+        char[] ch = str.toCharArray();
+
+        for (int i = 0; i < ch.length; i++) {
+
+            if (Character.isLetter(ch[i])) {
+                isWord = true;
+            }
+            else {
+                if (isWord) {
+                    count++;
+                    isWord = false;
+                }
+            }
+        }
+
+        if (isWord)
+            count++;
+
+        return count;
+    }
+}
+
+----------------------------------------------
+

@@ -1,0 +1,103 @@
+//  Find factorial of a number using Recursive function
+
+import java.util.Scanner;
+
+class FactorialRecursive {
+    
+    static int factorial(int n) {
+        if (n == 0 || n == 1)
+            return 1;
+        return n * factorial(n - 1);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Number: ");
+        int n = sc.nextInt();
+
+        System.out.println("Factorial = " + factorial(n));
+
+        sc.close();
+    }
+}
+
+-------------------
+
+// Find Fibonacci series in following pattern
+//  1
+//  2 3
+//  5 8 13
+
+import static java.lang.System.out;
+
+public class Fibonacci {
+
+    public static void fib(int s) {
+
+        int a = 0;
+        int b = 1;
+        int c;
+
+        out.print(a + " " + b);
+
+        if (s > 2) {
+
+            for (int i = 1; i <= s - 2; i++) {
+
+                c = a + b;
+                out.print(" " + c);
+
+                a = b;
+                b = c;
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        fib(6);
+    }
+}
+
+--------------------
+
+// Print binary of a number in reverse order eg. Input 4 O/P 0 0 1
+
+import java.util.Scanner;
+
+class ReverseBinary {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Number: ");
+        int n = sc.nextInt();
+
+        while (n > 0) {
+            System.out.print(n % 2 + " ");
+            n = n / 2;
+        }
+
+    }
+}
+
+-----------------------
+
+//  ***
+//  **
+//  *
+
+public class Pattern {
+    public static void main(String[] args) {
+
+        for (int i = 3; i >= 1; i--) {
+
+            for (int j = 1; j <= i; j++) {
+                System.out.print("*");
+            }
+
+            System.out.println();
+        }
+    }
+}
+
+------------------------
